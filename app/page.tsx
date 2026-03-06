@@ -7,7 +7,6 @@ export default function Home() {
   const [todos, setTodos] = useState<Task[]>([]);
   const [todo, setTodo] = useState<string>("");
 
-
   useEffect(() => {
     const savedTodos = localStorage.getItem("todos");
     if (savedTodos) {
@@ -26,11 +25,15 @@ export default function Home() {
         title: todo,
         isCompleted: false,
         createdAt: new Date(),
+        dueDate: dueDate ? new Date(dueDate) : undefined,
       };
       setTodos([...todos, newTask]);
       setTodo("");
+      setDueDate("");
     }
   };
+
+  const [dueDate, setDueDate] = useState<string>("");
 
   const toggleTodo = (id: string) => {
     setTodos(
@@ -56,11 +59,15 @@ export default function Home() {
             className={"w-full px-4 py-2 rounded-lg border border-[#CFAB8D] focus:outline-none focus:ring-2 focus:ring-[#CFAB8D] focus:shadow-lg transition-all duration-300"}
             placeholder="Add a task..."
           />
+          <input 
+          type="date"
+          value={dueDate}
+          onChange={(e) => setDueDate(e.target.value)}
+          className="px-2 py-2 rounded-lg border border-[#CFAB8D]"
+          />
           <button
             onClick={updateToDoList}
-            className="bg-[#CFAB8D] text-white px-5 py-2 rounded-lg shadow-md 
-                       hover:bg-[#4B2E20] hover:shadow-lg 
-                       active:scale-95 transition-all duration-300 font-semibold">
+            className={"bg-[#CFAB8D] text-white px-5 py-2 rounded-lg shadow-md  hover:bg-[#4B2E20] hover:shadow-lg  active:scale-95 transition-all duration-300 font-semibold"}>
                        Add
           </button>
         </div>
@@ -76,10 +83,14 @@ export default function Home() {
                 type="checkbox"
                 checked={task.isCompleted}
                 onChange={() => toggleTodo(task.id)}
-                className="w-5 h-5 accent-[#CFAB8D] cursor-pointer transition-transform duration-200 hover:scale-110"
-/>
+                className="w-5 h-5 accent-[#CFAB8D] cursor-pointer transition-transform duration-200 hover:scale-110"/>
               </div>
               <span className="font-bold text-center text-[#4B2E20]">{task.title}</span>
+              {task.dueDate && (
+                <span className="text-sm text-[#4B2E20] ml-2 font-bold">
+                  Due: {new Date(task.dueDate).toLocaleDateString()}
+                </span>
+              )}
               <button
                 onClick={() => deleteTodo(task.id)}
                 className="text-red-500 hover:text-red-900">
