@@ -46,20 +46,24 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[#CFAB8D] flex items-center justify-center">
-      <div className="bg-[#EEEEEE] shadow-2xl rounded p-6 w-full max-w-md">
-        <h1 className="text-2xl font-bold mb-4 text-center">TodoApp</h1>
+      <div className="bg-white/80 backdrop-blur-md border border-[#CFAB8D] rounded-xl shadow-2xl p-8 w-full max-w-lg">
+        <h1 className="text-4xl font-extrabold text-center text-[#4B2E20] mb-8">TodoApp</h1>
         <div className="flex gap-2 mb-4">
           <input
             type="text"
             value={todo}
             onChange={(e) => setTodo(e.target.value)}
-            className="flex-1 border rounded px-2 py-1 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="w-full px-4 py-2 rounded-lg border border-[#CFAB8D] 
+             focus:outline-none focus:ring-2 focus:ring-[#CFAB8D] 
+             focus:shadow-lg transition-all duration-300"
             placeholder="Add a task..."
           />
           <button
             onClick={updateToDoList}
-            className="bg-[#CFAB8D] text-white px-4 py-1 rounded hover:bg-black">
-            Add
+            className="bg-[#CFAB8D] text-white px-5 py-2 rounded-lg shadow-md 
+                       hover:bg-[#4B2E20] hover:shadow-lg 
+                       active:scale-95 transition-all duration-300 font-semibold">
+                       Add
           </button>
         </div>
 
@@ -67,7 +71,7 @@ export default function Home() {
           {todos.map((task) => (
             <li
               key={task.id}
-              className="flex justify-between items-center bg-gray-50 px-3 py-2 rounded"
+              className="flex justify-between items-center bg-gray-50 px-3 py-2 rounded hover:shadow-lg hover:scale-[1.02] transation-all duration-300"
             >
               <div className="flex items-center gap-2">
                 <input 
@@ -80,7 +84,7 @@ export default function Home() {
               <span>{task.title}</span>
               <button
                 onClick={() => deleteTodo(task.id)}
-                className="text-red-500 hover:text-red-700"
+                className="text-red-500 hover:text-red-900"
               >
                 Delete
               </button>
