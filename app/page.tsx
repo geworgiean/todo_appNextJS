@@ -1,6 +1,6 @@
 'use client'
 import { useState, useEffect } from "react";
-import { Task } from './types/task'
+import { Task } from "./types/task";
 
 
 export default function Home() {
@@ -58,7 +58,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#CFAB8D] _#FDFBF9,_#CFAB8D)]">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-[#CFAB8D] via-[#fde4cc] to-[#4B2E20] animate-gradient">
       <div className="bg-white/80 backdrop-blur-md border border-[#CFAB8D] rounded-xl shadow-2xl p-8 w-full max-w-lg">
         <h1 className="text-4xl font-extrabold text-center text-[#4B2E20] mb-8">TodoApp</h1>
         <div className="flex gap-2 mb-4">
