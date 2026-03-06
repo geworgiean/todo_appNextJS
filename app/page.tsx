@@ -45,8 +45,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-[#CFAB8D] bg-[url('/coffee-pattern.svg')] bg-repeat 
-                flex items-center justify-center">
+    <div className="min-h-screen flex items-center justify-center bg-[#CFAB8D] _#FDFBF9,_#CFAB8D)]">
       <div className="bg-white/80 backdrop-blur-md border border-[#CFAB8D] rounded-xl shadow-2xl p-8 w-full max-w-lg">
         <h1 className="text-4xl font-extrabold text-center text-[#4B2E20] mb-8">TodoApp</h1>
         <div className="flex gap-2 mb-4">
@@ -54,9 +53,7 @@ export default function Home() {
             type="text"
             value={todo}
             onChange={(e) => setTodo(e.target.value)}
-            className="w-full px-4 py-2 rounded-lg border border-[#CFAB8D] 
-             focus:outline-none focus:ring-2 focus:ring-[#CFAB8D] 
-             focus:shadow-lg transition-all duration-300"
+            className={"w-full px-4 py-2 rounded-lg border border-[#CFAB8D] focus:outline-none focus:ring-2 focus:ring-[#CFAB8D] focus:shadow-lg transition-all duration-300"}
             placeholder="Add a task..."
           />
           <button
@@ -79,15 +76,13 @@ export default function Home() {
                 type="checkbox"
                 checked={task.isCompleted}
                 onChange={() => toggleTodo(task.id)}
-                className="w-5 h-5 accent-[#CFAB8D] cursor-pointer 
-             transition-transform duration-200 hover:scale-110"
-                />
+                className="w-5 h-5 accent-[#CFAB8D] cursor-pointer transition-transform duration-200 hover:scale-110"
+/>
               </div>
-              <span>{task.title}</span>
+              <span className="font-bold text-center text-[#4B2E20]">{task.title}</span>
               <button
                 onClick={() => deleteTodo(task.id)}
-                className="text-red-500 hover:text-red-900"
-              >
+                className="text-red-500 hover:text-red-900">
                 Delete
               </button>
             </li>
