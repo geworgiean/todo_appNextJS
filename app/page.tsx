@@ -102,7 +102,7 @@ export default function Home() {
               )}
               <button
                 onClick={() => deleteTodo(task.id)}
-                className="text-red-500 hover:text-red-900">
+                className="text-red-500 hover:text-red-900 font-semibold">
                 Delete
               </button>
             </li>
@@ -118,7 +118,7 @@ export default function Home() {
               <span className="line-through font-bold text-[#4B2E20]">{task.title}</span>
               <button 
                 onClick={() => setArchive(archive.filter((t) => t.id !== task.id))}
-                className="text-red-600 hover:text-red-900"
+                className="text-red-600 hover:text-red-900 font-semibold"
               >
                 Delete
               </button>
