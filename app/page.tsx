@@ -206,7 +206,7 @@ export default function Home() {
             </li>
           ))}
         </ul>
-
+          
         <h2 className="text-3xl font-bold text-[#4B2E20] mt-10 mb-6">Archive</h2>
         <ul className="space-y-3">
           {archive.map((task) => (
@@ -225,9 +225,19 @@ export default function Home() {
               >
                 <FaTrash className="w-6 h-6" />
               </button>
+              
             </li>
           ))}
+          <button
+            onClick={() => {
+              setArchive([]);
+            }}
+            className="bg-[#CFAB8D] text-white px-6 py-2 rounded-lg shadow-md hover:bg-red-500 hover:shadow-lg transition-all duration-300 text-lg font-semibold mt-6"
+          >
+            Clear Completed
+          </button>
         </ul>
+        
       </div>
     </div>
   );
