@@ -180,7 +180,7 @@ export default function Home() {
               )}
 
               {editingId !== task.id && (
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-4 font">
                   <button
                     onClick={() => {
                       setEditingId(task.id);
@@ -191,13 +191,13 @@ export default function Home() {
                           : ""
                       );
                     }}
-                    className="text-[#4B2E20] hover:text-[#CFAB8D]"
+                    className="text-[#4B2E20] hover:text-[#CFAB8D] font-bold"
                   >
                     <FaEdit className="w-6 h-6" />
                   </button>
                   <button
                     onClick={() => deleteTodo(task.id)}
-                    className="text-[#4B2E20] hover:text-red-500"
+                    className="text-[#4B2E20] hover:text-red-00"
                   >
                     <FaTrash className="w-6 h-6" />
                   </button>
@@ -232,7 +232,7 @@ export default function Home() {
             onClick={() => {
               setArchive([]);
             }}
-            className="bg-[#CFAB8D] text-white px-6 py-2 rounded-lg shadow-md hover:bg-red-500 hover:shadow-lg transition-all duration-300 text-lg font-semibold mt-6"
+            className="bg-[#CFAB8D] text-white px-6 py-2 rounded-lg shadow-md hover:bg-red-600 hover:shadow-lg transition-all duration-300 text-lg font-semibold mt-6"
           >
             Clear Completed
           </button>
