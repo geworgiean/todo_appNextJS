@@ -112,7 +112,6 @@ export default function Home() {
                 onChange={() => toggleTodo(task.id)}
                 className="w-6 h-6 accent-[#CFAB8D] cursor-pointer transition-transform duration-200 hover:scale-110"
               />
-
               {editingId === task.id ? (
                 <div className="flex items-center gap-3">
 
@@ -122,7 +121,6 @@ export default function Home() {
                     onChange={(e) => setEditText(e.target.value)}
                     className="border border-[#CFAB8D] rounded px-3 py-2 text-lg"
                   />
-
                   <div className="ml-0">
                     <input
                       type="date"
