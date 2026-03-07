@@ -11,6 +11,8 @@ export default function Home() {
   const [editDate, setEditDate] = useState<string>("");
   const [editText, setEditText] = useState<string>("");
   const [editingId, setEditingId] = useState<string | null>(null);
+  const [searchTerm, setSearchTerm] = useState<string>("");
+
 
   useEffect(() => {
     const savedTodos = localStorage.getItem("todos");
@@ -62,6 +64,15 @@ export default function Home() {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-[#CFAB8D] via-[#fde4cc] to-[#4B2E20] animate-gradient">
       <div className="bg-white/80 backdrop-blur-md border border-[#CFAB8D] rounded-xl shadow-2xl p-12 w-full max-w-3xl">
         <h1 className="text-5xl font-extrabold text-center text-[#4B2E20] mb-10">TodoApp</h1>
+        <div className="flex gap-3 mb-6">
+          <input 
+          type="text"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="w-full px-5 py-3 rounded-lg border border-[#CFAB8D] focus:outline-none focus:ring-2 focus:ring-[#CFAB8D] focus:shadow-lg transition-all duration-300 text-lg font-semibold"
+          placeholder="Search tasks..."
+          />
+        </div>
 
         <div className="flex gap-3 mb-6">
           <input
@@ -86,7 +97,11 @@ export default function Home() {
         </div>
 
         <ul className="space-y-3">
-          {todos.map((task) => (
+          {todos
+            .filter((task) =>
+              task.title.toLowerCase().includes(searchTerm.toLowerCase())
+            )
+            .map((task) => (
             <li
               key={task.id}
               className="flex justify-between items-center bg-gray-50 px-4 py-3 rounded-lg hover:shadow-lg hover:scale-[1.02] transition-all duration-300 text-lg"
